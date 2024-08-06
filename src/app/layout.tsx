@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import NextAuthProvider from "@/provider/next-auth-provider";
+import NextThemeProvider from "@/provider/theme-provider";
+
+import GlobalState from "@/context";
+
+import Headers from "@/components/header";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +23,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="dark:bg-black">
+        <NextThemeProvider>
+          <NextAuthProvider>
+            <GlobalState>
+              <Headers />
+              {children}
+            </GlobalState>
+          </NextAuthProvider>
+        </NextThemeProvider>
+      </body>
     </html>
   );
 }
