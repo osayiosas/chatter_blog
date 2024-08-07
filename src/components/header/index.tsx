@@ -77,9 +77,7 @@ export default function Header() {
                       : "opacity-0 invisible top-[120%]"
                   }`}
                 >
-                  <ul className="block lg:flex lg:space-x-12">
-
-                  </ul>
+                  <ul className="block lg:flex lg:space-x-12"></ul>
                 </nav>
               </div>
             </div>
